@@ -12,6 +12,10 @@ RUN \
 VOLUME /root
 EXPOSE 3000
 WORKDIR /root
+
 COPY server.zip ./
-COPY entrypoint.sh ./
-ENTRYPOINT ./entrypoint.sh
+
+COPY entrypoint.sh /
+RUN chmod 555 /entrypoint.sh
+
+ENTRYPOINT /entrypoint.sh
