@@ -20,4 +20,6 @@ COPY package.zip ./
 COPY entrypoint.sh /
 RUN chmod 555 /entrypoint.sh
 
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT [ "/bin/sh",  "/entrypoint.sh" ]
+
+CMD [ "--help" ]
