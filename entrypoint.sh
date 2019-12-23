@@ -1,17 +1,18 @@
 #!/bin/bash
 
 case "$1" in
---help) echo "docker run --rm am2h/nodejs:version SOURCE CMD [PARAMS...]"
-       echo "SOURCE = source/source.js or source/package.json"
-       echo "CMD = node, run, init";;
-*) echo "Alles: $@";;
+--help) echo "docker run -it --rm am2h/nodejs:version node | npm | SOURCE CMD [PARAMS]"
+        echo "SOURCE = e.g. helloworld (source/source.js or source/package.json)"
+        echo "CMD = node PARAMS, run (node SOURCE.js | npm install, npm start), init (npm init)";;
+node)   node $2 $3;;
+npm)    nmp $2 $3;;
+*)      echo "Aufruf: $@";;
 esac
 
-if test -f "package.zip"; then
-    echo "package.zip exist"
-#    unzip package.zip
-#    mv ./package.zip ./package.zip.bak
-fi
+case "$2" in
+node)   cd "$1"
+        node $1 $3;;
+esac
 
 # npm install --save
 # npm start

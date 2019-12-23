@@ -15,7 +15,7 @@ EXPOSE 3000
 
 WORKDIR /root
 
-COPY package.zip ./
+COPY helloworld/helloworld.js /root/helloworld/
 
 COPY entrypoint.sh /
 RUN chmod 555 /entrypoint.sh
