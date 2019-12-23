@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN \
   apt-get update -y && \
-  apt-get install mc curl build-essential openssh-server -y && \
+  apt-get install mc curl build-essential -y && \
   curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
   apt-get install nodejs -y && \
   apt-get autoremove -y && \
@@ -12,7 +12,6 @@ RUN \
 VOLUME /root
 
 EXPOSE 3000
-EXPOSE 22
 
 WORKDIR /root
 
